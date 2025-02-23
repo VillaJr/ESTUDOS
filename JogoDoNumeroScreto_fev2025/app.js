@@ -13,13 +13,17 @@ Declaramos a variável tiulo e o resultado da seleção (querySelector) é armaz
 No caso, como paragrafo é uma referência a um elemento <p>, innerHTML se refere ao texto ou HTML que está dentro desse parágrafo.
 */
 
+exibirMensagemInicial();
+
 function exibirTextoNaTela(tag,texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
 }
 
-exibirTextoNaTela('h1','Jogo do número secreto');
-exibirTextoNaTela('p','Escolha um número entre 1 e 10');
+function exibirMensagemInicial(){
+    exibirTextoNaTela('h1','Jogo do número secreto');
+    exibirTextoNaTela('p','Escolha um número entre 1 e 10');
+}
 
 
 function verificarChute() {
@@ -48,10 +52,17 @@ function gerarNumeroAleatorio(){
     return parseInt( Math.random() * 10 + 1 );
 }
 function limparCampo(){
-    chute = document.querySelector('input')
+    chute = document.querySelector('input');
     chute.value = "";
 }
 
+function reiniciarJogo(){
+    numeroSecreto = gerarNumeroAleatorio();
+    limparCampo();
+    tentativas = 1;
+    exibirMensagemInicial();
+    document.getElementById('reiniciar').setAttribute('disabled',true);
+}
 
 
 /*function verificarChute():
