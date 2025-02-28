@@ -10,6 +10,8 @@ exibirMensagemInicial('p',`Escolha um número entre 1 e ${numeroLimite}` );
 function exibirMensagemInicial(tag,texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+
+    
 }
 
 function exibirTextoNaTela(tag, texto) {
@@ -70,9 +72,11 @@ function limparCampo() {
 }
 
 function reiniciarJogo() {
+    
     document.getElementById('reiniciar').setAttribute('disabled',true);
     numeroSecreto = gerarNumeroAleatorio();
     limparCampo();
     tentativas =1;
-    exibirMensagemInicial();
+    exibirMensagemInicial('h1','Jogo do número secreto');
+    exibirMensagemInicial('p',`Escolha um número entre 1 e ${numeroLimite}` );
 }
